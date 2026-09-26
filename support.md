@@ -42,7 +42,7 @@ Aria is a phone call, so when you place or schedule one the app sends your phone
 
 ### How do I delete my data?
 - Delete individual tasks from the task detail screen
-- Go to **Settings > Clear All Data** to erase your tasks, schedules and streaks on this device; the deletion is pushed to iCloud so your other devices clear too
+- Go to **Settings > Clear All Data** to erase your tasks, schedules and streaks on this device; the task and schedule deletions are pushed to iCloud so your other devices clear too
 - Uninstalling the app removes everything on the device. The iCloud copy stays in your account until you clear it, so use **Clear All Data** first if you want it gone
 - **Aria:** remove your phone number in **Settings > Aria** and Aria can no longer call you. To have your verified number deleted from our server, email **alonsobardales.apps@gmail.com** with the number you verified; we reply within 48 hours and delete it within 30 days, usually within a few days
 
