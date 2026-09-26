@@ -10,7 +10,7 @@ Priority Task Manager ("we", "our", or "the app") is a to-do app for iPhone and 
 
 ## Developer Information
 
-**Developer:** Alonso Bardales
+**Developer:** Alonso Bryan Bardales, independent developer, United States
 **Contact:** alonsobardales.apps@gmail.com
 **App Name:** Priority Task Manager
 **Bundle ID:** com.alonsobardales.PriorityTaskManager
@@ -113,7 +113,7 @@ Changes Aria makes on the call, such as marking a task done, changing a priority
 | Calls per phone number | The number and the times of its calls in the last 24 hours. The entry stays until the number's next call, so a number that stops using Aria remains listed with its last call times until you ask us to delete it. |
 | The result of checking your subscription with Apple | 10 minutes. |
 | Call audio | Streams through our server and is never recorded or written to disk by us. OpenAI receives the audio to run the voice; its API terms allow it to keep abuse-monitoring logs for up to 30 days and say the audio is not used for training. |
-| Server logs | Log lines record that a call or verification happened, normally with only the last four digits of your number; an error message from our phone provider may occasionally include the full number. Tokens are redacted. Logs may include the titles of tasks Aria adds or changes during a call; other task titles are kept out of logs unless a debugging setting is turned on, which is off by default. Like any web request, requests to our server also carry your device's internet address, which our hosting provider logs. Railway keeps server logs for a limited time set by our hosting plan (7 days on Railway's Hobby plan, 30 days on Pro). |
+| Server logs | Log lines record that a call or verification happened, normally with only the last four digits of your number; an error message from our phone provider may occasionally include the full number. Tokens are redacted. Logs may include the titles of tasks Aria adds or changes during a call; other task titles are kept out of logs unless a debugging setting is turned on, which is off by default. Like any web request, requests to our server also carry your device's internet address, which our hosting provider logs. Railway keeps server logs for 7 days. |
 
 **We do not keep:** call audio (it streams through our server and is never recorded or written to disk), transcripts, verification codes, or the receipt itself. OpenAI's handling of the audio is described in the table above.
 
