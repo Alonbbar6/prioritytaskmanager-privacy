@@ -35,12 +35,16 @@ Groups let you organize related tasks together with recurring schedules. Create 
 Open any task's detail view and tap **Breathing Exercise**. Follow the guided inhale, hold, and exhale cycle to reset and refocus.
 
 ### Where is my data stored?
-All your data is stored **locally on your device only**. Nothing is sent to any server. See our [Privacy Policy](https://alonbbar6.github.io/prioritytaskmanager-privacy/) for details.
+On your device, and, if you are signed in to iCloud, in **your own iCloud account** so your other devices stay in step. We cannot see it. Nothing is sent to us unless you subscribe to **Aria** and agree in the app to share your data for calls. To turn off iCloud sync, open iOS **Settings**, tap your name, tap **iCloud**, and turn it off for Priority Task Manager. See the [Privacy Policy](https://alonbbar6.github.io/prioritytaskmanager-privacy/) for details.
+
+### What does Aria send and to whom?
+Aria is a phone call, so when you place or schedule one the app sends your phone number, your first name (if you entered one), the titles, priorities and dates of your incomplete tasks, your time zone and your App Store receipt to our server on Railway. Twilio places the call and sends the verification text; OpenAI's Realtime model is the voice you talk to. Task notes and completed tasks are never sent, and nothing is sent until you tap **Agree and Continue** on the **How Aria Uses Your Data** screen and verify your number. The full list, who keeps what and for how long, is in the [Aria section of the Privacy Policy](https://alonbbar6.github.io/prioritytaskmanager-privacy/#aria-optional-paid-subscription).
 
 ### How do I delete my data?
 - Delete individual tasks from the task detail screen
-- Go to **Settings > Clear All Data** to erase everything
-- Uninstalling the app removes all data permanently
+- Go to **Settings > Clear All Data** to erase your tasks, schedules and streaks on this device; the deletion is pushed to iCloud so your other devices clear too
+- Uninstalling the app removes everything on the device. The iCloud copy stays in your account until you clear it, so use **Clear All Data** first if you want it gone
+- **Aria:** remove your phone number in **Settings > Aria** and Aria can no longer call you. To have your verified number deleted from our server, email **alonsobardales.apps@gmail.com** with the number you verified; we reply within 48 hours and delete it within 30 days, usually within a few days
 
 ### How do I enable notifications?
 The app will ask for notification permission on first launch. If you declined, go to **Settings** in the app and tap **Enable** next to Notifications, which will take you to iOS Settings to grant permission.
