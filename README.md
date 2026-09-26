@@ -19,7 +19,7 @@ Priority Task Manager ("we", "our", or "the app") is a to-do app for iPhone and 
 
 - There are no accounts. You never sign in to us.
 - Your tasks live on your device and, if you are signed in to iCloud, in your own iCloud account. We cannot see them.
-- The app sends nothing to us unless you subscribe to Aria **and** agree in the app to share your data for calls.
+- The app sends none of your data to us unless you subscribe to Aria **and** agree in the app to share your data for calls.
 - Aria sends your phone number, your first name, and the titles, priorities and dates of your incomplete tasks to our server so Aria can call you. The call goes through Twilio; the voice you talk to is OpenAI's.
 - No analytics, no ads, no tracking, no data sales, and your data is never used to train AI models.
 
@@ -129,7 +129,7 @@ Reminders and Aria call alerts are local notifications generated on your device.
 
 - No analytics or usage tracking.
 - No advertising and no advertising identifiers.
-- No third-party SDKs in the app. The only network connection the app makes is to our Aria server, and only for Aria.
+- No third-party SDKs in the app. Apart from Apple's own services (iCloud, the App Store), the only server the app talks to is our Aria server. When you open the Aria screen, the app asks that server whether Aria is available; that request carries no personal data.
 - No selling, renting or trading of your data.
 - No AI training on your data.
 - No accounts, so nothing is linked to an identity we hold. Our server knows a subscription ID and a phone number, nothing more about who you are.
@@ -138,7 +138,7 @@ Reminders and Aria call alerts are local notifications generated on your device.
 
 **On your device**
 - Delete any task from its detail screen.
-- **Settings > Clear All Data** erases your tasks, schedules and streaks on this device and pushes the deletion to iCloud, so your other devices clear too.
+- **Settings > Clear All Data** erases your tasks, schedules and streaks on this device and pushes the task and schedule deletions to iCloud, so your other devices clear too.
 - Uninstalling the app removes everything stored on the device. The iCloud copy stays in your iCloud account until you clear it, so use **Clear All Data** first if you want it gone.
 
 **iCloud**
@@ -183,7 +183,7 @@ The version of the app in the App Store today does not include Aria, and no feat
 | | |
 |---|---|
 | **Data Storage** | On your device, plus your own iCloud account if you are signed in |
-| **Data Sent to Us** | None, unless you subscribe to Aria and agree in the app |
+| **Data Sent to Us** | None of your data, unless you subscribe to Aria and agree in the app |
 | **What Aria Sends** | Phone number, first name, incomplete task titles/priorities/dates, time zone, App Store receipt |
 | **Who Receives It** | Our server on Railway, Twilio (call and texts), OpenAI (voice) |
 | **Kept on Our Server** | Verified number paired with subscription ID until you change it or ask; call data for about an hour after a call; scheduled calls until they fire |
