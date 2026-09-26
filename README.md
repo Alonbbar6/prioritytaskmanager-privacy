@@ -39,15 +39,15 @@ This data is kept in the app's private storage on your device (iOS UserDefaults)
 If your device is signed in to iCloud, the app mirrors a copy of your data to iCloud Key-Value storage **in your own Apple Account**, so your other devices stay in step:
 
 - tasks and a list of recently deleted task IDs (so deletions reach your other devices)
-- groups and schedules
-- streaks and milestones
+- groups and schedules, and a list of recently deleted group IDs
+- streaks and milestones, and the time you last cleared them
 - a one-time copy of a few settings: your first name for Aria, your morning-reminder time and onboarding status
 
 Your phone number is **not** synced to iCloud.
 
 This copy is stored by Apple, encrypted in transit and on Apple's servers, and is available only to devices signed in to your Apple Account. It never goes to us. Apple's handling of it is covered by [Apple's privacy policy](https://www.apple.com/legal/privacy/).
 
-**To turn it off:** sign out of iCloud on the device (iOS **Settings**, tap your name, then **Sign Out**). Turning iCloud off for Priority Task Manager alone, under **Settings > your name > iCloud**, may not stop this kind of sync (Apple's key-value storage), so we do not promise that it does. The app keeps working from the copy on your device. If you are not signed in to iCloud, nothing is synced. Either way, the copy already in iCloud stays there until you use **Clear All Data**; see [Your Choices](#your-choices-and-how-to-delete-your-data).
+**To turn it off:** in the app, go to **Settings > iCloud Sync** and turn off **Sync with iCloud**. The app asks whether to also remove your data from iCloud. **Remove from iCloud** clears this device's tasks, schedules, streaks and settings copy from iCloud, and your other devices drop them too when they next sync; **Keep in iCloud** leaves the copy there. Either way nothing on this device is deleted, and nothing is synced until you turn the switch back on. Signing out of iCloud on the device (iOS **Settings**, tap your name, then **Sign Out**) also stops sync. If you are not signed in to iCloud, nothing is synced. See also [Your Choices](#your-choices-and-how-to-delete-your-data).
 
 ## Calendar Access (Read, Not Stored)
 
@@ -150,11 +150,11 @@ Reminders and Aria call alerts are local notifications generated on your device.
 
 **On your device**
 - Delete any task from its detail screen.
-- **Settings > Clear All Data** erases your tasks, schedules and streaks on this device, and removes your tasks, schedules, streak history and the one-time copy of your settings (including your first name) from iCloud. Your other devices delete the same tasks when they next sync. Schedules and streaks are different: a device that still has its own copy puts it back in iCloud the next time it syncs, and this device picks it up again. To clear them everywhere, run **Clear All Data** on each of your devices in turn, or delete the app from your other devices first.
+- **Settings > Clear All Data** erases your tasks, schedules and streaks on this device, and removes your tasks, schedules, streak history and the one-time copy of your settings (including your first name) from iCloud. Your other devices delete the same tasks, schedules and streaks when they next sync. A device still running an older version of the app cannot do this for schedules and streaks and may put its own copy back, so update the app there first, or run **Clear All Data** on that device too.
 - Uninstalling the app removes everything stored on the device, including your data-sharing choice for Aria. The iCloud copy stays in your iCloud account, so use **Clear All Data** first if you want it gone from there too.
 
 **iCloud**
-- Sign out of iCloud on the device, as described under [iCloud Sync](#icloud-sync-your-own-account).
+- Turn off **Settings > iCloud Sync > Sync with iCloud** in the app, and choose whether to remove your data from iCloud, as described under [iCloud Sync](#icloud-sync-your-own-account). Signing out of iCloud on the device also stops sync.
 
 **Calendar**
 - Revoke access in iOS **Settings > Privacy & Security > Calendars**.
