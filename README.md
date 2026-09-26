@@ -150,7 +150,7 @@ Reminders and Aria call alerts are local notifications generated on your device.
 
 **On your device**
 - Delete any task from its detail screen.
-- **Settings > Clear All Data** erases your tasks, schedules and streaks on this device, and removes your tasks, schedules, streak history and the one-time copy of your settings (including your first name) from iCloud, so your other devices clear too. One caveat: a second device that has not synced since you cleared may put its own copy of your streaks back in iCloud when you next use it; run **Clear All Data** on that device too if that happens.
+- **Settings > Clear All Data** erases your tasks, schedules and streaks on this device, and removes your tasks, schedules, streak history and the one-time copy of your settings (including your first name) from iCloud. Your other devices delete the same tasks when they next sync. Schedules and streaks are different: a device that still has its own copy puts it back in iCloud the next time it syncs, and this device picks it up again. To clear them everywhere, run **Clear All Data** on each of your devices in turn, or delete the app from your other devices first.
 - Uninstalling the app removes everything stored on the device, including your data-sharing choice for Aria. The iCloud copy stays in your iCloud account, so use **Clear All Data** first if you want it gone from there too.
 
 **iCloud**
@@ -166,7 +166,7 @@ Reminders and Aria call alerts are local notifications generated on your device.
 - Your verified number stays on our server, including after your subscription ends, until you verify a different number or email us to delete it (see below).
 
 **On our server**
-- Email **alonsobardales.apps@gmail.com** from any address and include the phone number you verified. We will reply within 48 hours and delete your verified number, any scheduled calls and any entry for your number still in our call counters within 30 days; in practice it is usually done within a few days. Data for a call you started is deleted automatically within about an hour of the call, and the counter entry for your number a day after its last call, so there is nothing else to remove.
+- Email **alonsobardales.apps@gmail.com** from any address and include the phone number you verified. We will reply within 48 hours and delete your verified number, any scheduled calls and any entry for your number still in our call counters within 30 days; in practice it is usually done within a few days. Data for a call you started is deleted automatically within about an hour of the call, and the counter entry for your number about a day after its last call, so there is nothing else to remove.
 
 ## Children's Privacy
 
@@ -199,7 +199,7 @@ We switch Aria on from our server, so the version of the app you have may not of
 | **Data Sent to Us** | None of your data, unless you subscribe to Aria and agree in the app |
 | **What Aria Sends** | Phone number, first name, incomplete task titles/priorities/dates, time zone, App Store receipt |
 | **Who Receives It** | Our server on Railway, Twilio (call and texts), OpenAI (voice) |
-| **Kept on Our Server** | Verified number paired with subscription ID until you change it or ask, including after your subscription ends; data for a call you start for about an hour after it; a scheduled call, with your name and task list as of scheduling, until it fires or you cancel it; the times of your last day's calls, dropped a day after your last call |
+| **Kept on Our Server** | Verified number paired with subscription ID until you change it or ask, including after your subscription ends; data for a call you start for about an hour after it; a scheduled call, with your name and task list as of scheduling, until it fires or you cancel it; the times of your last day's calls, dropped about a day after your last call |
 | **Call Audio** | Streams through; never recorded by us. OpenAI may keep abuse-monitoring logs for up to 30 days |
 | **Third-Party SDKs in the App** | None |
 | **Analytics** | None |
