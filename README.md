@@ -2,7 +2,7 @@
 
 **Last Updated: September 26, 2026**
 
-> **When this policy applies.** This version takes effect when **Aria**, the optional phone-call subscription, launches in the App Store. Until then, the version of the app in the App Store works as described in [The current version](#the-current-version-before-aria-launches) at the end: your tasks stay on your device and in your own iCloud account, and nothing is sent to us.
+> **Aria may not yet be available in the version of the app you have.** If it is not, the Aria section does not apply to you yet; everything else does. See [If your version does not have Aria yet](#if-your-version-does-not-have-aria-yet) at the end.
 
 ## Introduction
 
@@ -20,8 +20,8 @@ Priority Task Manager ("we", "our", or "the app") is a to-do app for iPhone and 
 - There are no accounts. You never sign in to us.
 - Your tasks live on your device and, if you are signed in to iCloud, in your own iCloud account. We cannot see them.
 - The app sends none of your data to us unless you subscribe to Aria **and** agree in the app to share your data for calls.
-- Aria sends your phone number, your first name, and the titles, priorities and dates of your incomplete tasks to our server so Aria can call you. The call goes through Twilio; the voice you talk to is OpenAI's.
-- No analytics, no ads, no tracking, no data sales, and your data is never used to train AI models.
+- Aria sends your phone number, your first name, the titles, priorities and dates of your incomplete tasks, your time zone and your App Store receipt to our server so Aria can call you. The call goes through Twilio; the voice you talk to is OpenAI's.
+- No analytics, no ads, no tracking, no data sales. We never use your data to train AI models, and OpenAI's API terms say the same for data sent through the API.
 
 ## What the App Stores on Your Device
 
@@ -47,7 +47,7 @@ Your phone number is **not** synced to iCloud.
 
 This copy is stored by Apple, encrypted in transit and on Apple's servers, and is available only to devices signed in to your Apple Account. It never goes to us. Apple's handling of it is covered by [Apple's privacy policy](https://www.apple.com/legal/privacy/).
 
-**To turn it off:** open iOS **Settings**, tap your name, tap **iCloud**, and turn iCloud off for Priority Task Manager (or sign out of iCloud on the device). The app keeps working from the copy on your device. If you are not signed in to iCloud, nothing is synced.
+**To turn it off:** sign out of iCloud on the device (iOS **Settings**, tap your name, then **Sign Out**). Turning iCloud off for Priority Task Manager alone, under **Settings > your name > iCloud**, may not stop this kind of sync (Apple's key-value storage), so we do not promise that it does. The app keeps working from the copy on your device. If you are not signed in to iCloud, nothing is synced. Either way, the copy already in iCloud stays there; see [Your Choices](#your-choices-and-how-to-delete-your-data) for what **Clear All Data** removes from it.
 
 ## Calendar Access (Read, Not Stored)
 
@@ -73,7 +73,7 @@ Aria only works after all three of these:
 
 1. You subscribe to Aria through Apple.
 2. You read **How Aria Uses Your Data** in the app and tap **Agree and Continue**. If you tap **Not Now**, nothing is sent, and you can read the screen again any time in **Settings > Aria**.
-3. You verify your phone number. The app sends your number and your subscription receipt to our server; our server texts you a six-digit code through Twilio; you enter it in the app. Codes expire after 10 minutes and are held only as a hash in our server's memory. Aria can only ever call the number you verified.
+3. You verify your phone number. The app sends your number and your subscription receipt to our server; our server texts you a six-digit code through Twilio; you enter it in the app. Codes expire after 10 minutes and are held only as a hash in our server's memory. Aria can only ever call the number you verified. Aria currently calls **US numbers only**.
 
 ### What is sent, each time a call is placed or scheduled
 
@@ -85,12 +85,16 @@ Aria only works after all three of these:
 
 This applies to calls you start ("Call Me Now"), calls you schedule for a task, and the **Daily Check-in** call the app places for you at the time you set.
 
+The app also sends the receipt, and nothing else, when it starts after you have agreed (and again when you agree, or when our server refuses a number), to ask our server which number is verified.
+
 ### Who receives it and why
 
-- **Our Aria server**, hosted on Railway. It checks your subscription with Apple, confirms your number is verified, places the call, holds your task list for the length of the call, and records the changes Aria makes so your phone can pick them up.
+- **Our Aria server**, hosted on Railway. It checks your subscription with Apple, confirms your number is verified, places the call, holds your task list from the moment you place or schedule a call until the call ends, and records the changes Aria makes so your phone can pick them up. See [Railway's privacy policy](https://railway.com/legal/privacy) for the hosting side.
 - **Twilio**, which places the phone call to your number and sends you texts (the verification code, and a text if we have to end a call early because your daily allowance is used up). See [Twilio's privacy policy](https://www.twilio.com/en-us/legal/privacy).
-- **OpenAI**, whose Realtime voice model is the voice you talk to. During the call our server gives it your first name, your task list, your time zone and the current time, and streams the conversation audio both ways. See [OpenAI's privacy policy](https://openai.com/policies/privacy-policy/) and its API data-usage terms for how OpenAI handles that audio; we do not control OpenAI's retention.
+- **OpenAI**, whose Realtime voice model is the voice you talk to. During the call our server gives it your first name, your task list, your time zone and the current time, and streams the conversation audio both ways. See [OpenAI's privacy policy](https://openai.com/policies/privacy-policy/) and its [API data-usage terms](https://developers.openai.com/api/docs/guides/your-data).
 - **Apple**, which handles the subscription payment. We never see your payment details, only the signed receipt.
+
+Railway, Twilio and OpenAI process this data only to provide their service to us (hosting, the call and texts, the voice), under terms that require them to protect it and forbid using it for their own purposes such as advertising. OpenAI's API terms state that data sent through its API is not used to train OpenAI's models and that abuse-monitoring logs are kept for up to 30 days.
 
 We do not use your data to train AI models, we do not use it for advertising, and we never sell it.
 
@@ -102,20 +106,28 @@ Changes Aria makes on the call, such as marking a task done, changing a priority
 
 | Data | Kept for |
 |---|---|
-| The call set-up data for one call (your name, task list, number, time zone) | Deleted 90 seconds after it is created if the call never connects, and when the call ends. The list of changes Aria made is kept for about one hour so your phone can fetch it, then deleted. |
-| A scheduled call (your number, the task's title and ID, the call time) | Until the call fires or you cancel it. A call more than 24 hours overdue is dropped. |
-| Your verified phone number, paired with your Aria subscription ID (Apple's transaction identifier; not your name or Apple ID) | Until you verify a different number, or ask us to delete it. |
-| Daily call counters, by phone number and by subscription | About one day. |
+| The call set-up data for a call you start now, or the Daily Check-in (your name, task list, number, time zone) | Deleted 90 seconds after it is created if the call never connects, and when the call ends. The list of changes Aria made is kept for about one hour so your phone can fetch it, then deleted. |
+| A scheduled call | Your number, the task's title and ID and the call time are saved to disk. Your first name, your task list and your time zone, as they were when you scheduled it, are held in memory until the call fires (they do not survive a server restart). Kept until the call fires or you cancel it; a call more than 24 hours overdue is dropped. If our server restarts before the call, only the number, the task title and ID and the time are kept, and Aria calls with just those. |
+| Your verified phone number, paired with your Aria subscription ID (Apple's transaction identifier; not your name or Apple ID) | Until you verify a different number, or ask us to delete it. This includes after your subscription ends. |
+| Calls per subscription (a count only) | Reset each day. |
+| Calls per phone number | The number and the times of its calls in the last 24 hours. The entry stays until the number's next call, so a number that stops using Aria remains listed with its last call times until you ask us to delete it. |
 | The result of checking your subscription with Apple | 10 minutes. |
-| Server logs | Log lines record that a call or verification happened, with only the last four digits of your number. Tokens are redacted, and task titles are kept out of logs unless a debugging setting is turned on, which is off by default. Logs are kept by Railway under its own retention. |
+| Call audio | Streams through our server and is never recorded or written to disk by us. OpenAI receives the audio to run the voice; its API terms allow it to keep abuse-monitoring logs for up to 30 days and say the audio is not used for training. |
+| Server logs | Log lines record that a call or verification happened, normally with only the last four digits of your number; an error message from our phone provider may occasionally include the full number. Tokens are redacted. Logs may include the titles of tasks Aria adds or changes during a call; other task titles are kept out of logs unless a debugging setting is turned on, which is off by default. Like any web request, requests to our server also carry your device's internet address, which our hosting provider logs. Railway keeps server logs for a limited time set by our hosting plan (7 days on Railway's Hobby plan, 30 days on Pro). |
 
-**We do not keep:** call audio (it streams through our server and is never recorded or written to disk), transcripts, verification codes, or the receipt itself.
+**We do not keep:** call audio (it streams through our server and is never recorded or written to disk), transcripts, verification codes, or the receipt itself. OpenAI's handling of the audio is described in the table above.
 
 While a call is in progress, we can see that a call is active, the number and its duration, and we can end it. We have no way to listen in.
 
+### How we protect it
+
+- Everything the app sends travels encrypted: HTTPS to our server, and encrypted connections from our server to Twilio and OpenAI.
+- Verification codes are stored only as a one-way hash in our server's memory, never on disk or in logs.
+- Access to our server's admin functions is limited to the developer and protected by a secret.
+
 ### Records from a retired promotion
 
-An earlier version of the app offered a free month in return for a review and collected a name and email address for that. The offer has been withdrawn, the app no longer has the form, and the server no longer accepts submissions. The records that were collected are being deleted. If you sent one and would like confirmation, email us.
+An earlier version of the app offered a free month in return for a review and collected a name, an email address and the review text you wrote for that. The offer has been withdrawn, the server no longer accepts submissions, and the next version of the app removes the form. The records that were collected are being deleted; nothing from that form will be kept. If you sent one and would like confirmation, email us.
 
 ## Purchases
 
@@ -129,31 +141,32 @@ Reminders and Aria call alerts are local notifications generated on your device.
 
 - No analytics or usage tracking.
 - No advertising and no advertising identifiers.
-- No third-party SDKs in the app. Apart from Apple's own services (iCloud, the App Store), the only server the app talks to is our Aria server. When you open the Aria screen, the app asks that server whether Aria is available; that request carries no personal data.
+- No third-party SDKs in the app. Apart from Apple's own services (iCloud, the App Store), the only server the app talks to is our Aria server. When you open the Aria screen, the app asks that server whether Aria is available; that request carries nothing about you beyond what any web request includes (your device's internet address, which our hosting provider may keep briefly in its connection logs).
 - No selling, renting or trading of your data.
 - No AI training on your data.
-- No accounts, so nothing is linked to an identity we hold. Our server knows a subscription ID and a phone number, nothing more about who you are.
+- No accounts. What our server can tie together is your phone number, your first name if you gave one, your task titles for the length of a call (or from scheduling until the call, for a scheduled call), and your Aria subscription's transaction ID. It never has your Apple ID, email or payment details.
 
 ## Your Choices and How to Delete Your Data
 
 **On your device**
 - Delete any task from its detail screen.
-- **Settings > Clear All Data** erases your tasks, schedules and streaks on this device and pushes the task and schedule deletions to iCloud, so your other devices clear too.
-- Uninstalling the app removes everything stored on the device. The iCloud copy stays in your iCloud account until you clear it, so use **Clear All Data** first if you want it gone.
+- **Settings > Clear All Data** erases your tasks, schedules and streaks on this device, and removes your tasks and schedules from iCloud so your other devices clear too. Your streak history and the one-time copy of your settings (including your first name) stay in iCloud until you sign out of iCloud on the device or delete the app's iCloud data in Apple's settings.
+- Uninstalling the app removes everything stored on the device, including your data-sharing choice for Aria. The iCloud copy stays in your iCloud account, so use **Clear All Data** first if you want your tasks and schedules gone from there too.
 
 **iCloud**
-- Turn off iCloud for the app or sign out, as described under [iCloud Sync](#icloud-sync-your-own-account).
+- Sign out of iCloud on the device, as described under [iCloud Sync](#icloud-sync-your-own-account).
 
 **Calendar**
 - Revoke access in iOS **Settings > Privacy & Security > Calendars**.
 
 **Aria**
-- Remove your phone number in **Settings > Aria**. Aria cannot call you without it, and nothing more is sent.
-- Turn off **Daily Check-in** and cancel any scheduled calls to stop calls you set up earlier.
-- Cancel the subscription in your Apple subscription settings.
+- To withdraw the agreement you gave on the **How Aria Uses Your Data** screen, remove your phone number in **Settings > Aria**. The app then places no new calls and sends none of your tasks or your name. While you stay subscribed, it still sends only the receipt when it starts, to ask which number is verified.
+- Calls you already scheduled are on our server and will still be placed unless you cancel them: turn Aria off on those tasks (which cancels them) and turn off **Daily Check-in**.
+- Cancel the subscription in your Apple subscription settings. After it ends, the app sends nothing more.
+- Your verified number stays on our server, including after your subscription ends, until you email us to delete it (see below).
 
 **On our server**
-- Email **alonsobardales.apps@gmail.com** from any address and include the phone number you verified. We will reply within 48 hours and delete your verified number, any scheduled calls and your call counters within 30 days; in practice it is usually done within a few days. Call data is deleted automatically within about an hour of each call, so there is nothing else to remove.
+- Email **alonsobardales.apps@gmail.com** from any address and include the phone number you verified. We will reply within 48 hours and delete your verified number, any scheduled calls and the entry for your number in our call counters within 30 days; in practice it is usually done within a few days. Data for a call you started is deleted automatically within about an hour of the call, so there is nothing else to remove.
 
 ## Children's Privacy
 
@@ -174,9 +187,9 @@ If you have questions about this policy or want your data deleted:
 **Email:** alonsobardales.apps@gmail.com
 **Response Time:** Within 48 hours
 
-## The Current Version (Before Aria Launches)
+## If Your Version Does Not Have Aria Yet
 
-The version of the app in the App Store today does not include Aria, and no feature in it sends data to us. Your tasks are stored on your device and, if you are signed in to iCloud, in your own iCloud account, exactly as described under [What the App Stores on Your Device](#what-the-app-stores-on-your-device) and [iCloud Sync](#icloud-sync-your-own-account). The Aria section applies only once Aria launches and only if you choose to use it.
+We switch Aria on from our server, so the version of the app you have may not offer it yet. If it does not, the Aria section does not apply to you yet; your tasks stay on your device and in your own iCloud account exactly as described above. The only thing an older version can send us is the review form described under [Records from a retired promotion](#records-from-a-retired-promotion), if your version still has it; those submissions are refused and anything received is deleted.
 
 ---
 
@@ -186,12 +199,12 @@ The version of the app in the App Store today does not include Aria, and no feat
 | **Data Sent to Us** | None of your data, unless you subscribe to Aria and agree in the app |
 | **What Aria Sends** | Phone number, first name, incomplete task titles/priorities/dates, time zone, App Store receipt |
 | **Who Receives It** | Our server on Railway, Twilio (call and texts), OpenAI (voice) |
-| **Kept on Our Server** | Verified number paired with subscription ID until you change it or ask; call data for about an hour after a call; scheduled calls until they fire |
-| **Call Audio** | Streams through; never recorded by us |
+| **Kept on Our Server** | Verified number paired with subscription ID until you change it or ask, including after your subscription ends; data for a call you start for about an hour after it; a scheduled call, with your name and task list as of scheduling, until it fires or you cancel it; the times of your last day's calls until your next call or your request |
+| **Call Audio** | Streams through; never recorded by us. OpenAI may keep abuse-monitoring logs for up to 30 days |
 | **Third-Party SDKs in the App** | None |
 | **Analytics** | None |
 | **Advertising** | None |
 | **Tracking** | None |
-| **AI Training on Your Data** | Never |
+| **AI Training on Your Data** | Never by us; OpenAI's API terms say the same for data sent through the API |
 | **Data Sold** | Never |
-| **Delete Your Data** | Settings > Clear All Data; remove your number in Settings > Aria; uninstall; email us for server-side deletion |
+| **Delete Your Data** | Settings > Clear All Data; remove your number in Settings > Aria and cancel scheduled calls; uninstall; email us for server-side deletion |
