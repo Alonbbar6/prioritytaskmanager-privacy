@@ -47,7 +47,7 @@ Aria is a phone call, so when you place or schedule one the app sends your phone
 - **Aria:** remove your phone number in **Settings > Aria** and the app cancels every call you had scheduled (this needs an internet connection at that moment) and the **Daily Check-in**, places no new calls and sends none of your tasks. To stop particular calls while keeping your number, turn Aria off on those tasks or turn off **Daily Check-in**. Deleting a task, or **Clear All Data**, does not cancel a call already scheduled for it; turn Aria off on the task first. Our server keeps your verified number, even after your subscription ends, until you verify a different number or email **alonsobardales.apps@gmail.com** with the number you verified; we reply within 48 hours and delete it within 30 days, usually within a few days
 
 ### How do I enable notifications?
-The app will ask for notification permission on first launch. If you declined, turn on the **Notifications** switch in the app's **Settings**, or allow notifications in iOS **Settings > Notifications > Priority Task Manager**.
+The app will ask for notification permission on first launch. If you declined when the app asked, allow notifications in iOS **Settings > Notifications > Priority Task Manager** (iOS does not ask a second time). If you never answered, the **Notifications** switch in the app's **Settings** asks you.
 
 ## Report a Bug
 
